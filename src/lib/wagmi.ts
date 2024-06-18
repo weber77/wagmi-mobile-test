@@ -1,4 +1,4 @@
-import { connectorsForWallets, getDefaultConfig, getDefaultWallets } from "@rainbow-me/rainbowkit";
+import { connectorsForWallets, getDefaultConfig } from "@rainbow-me/rainbowkit";
 
 import { mainnet } from "wagmi/chains";
 import {
@@ -8,27 +8,18 @@ import {
 } from "@rainbow-me/rainbowkit/wallets";
 
 import { createConfig, http } from "wagmi";
-import { PROJECT_ID } from "@/utils/env";
 
 
 
-const { wallets } = getDefaultWallets();
-const transports = {
-    [mainnet.id]: http()
-};
-export const config = getDefaultConfig({
-    appName: 'rainbowkit.com',
+const PROJECT_ID = import.meta.env.VITE_APP_PROJECT_ID
+
+export const rainbowConfig = getDefaultConfig({
+    appName: 'PaalX Sniper🎯',
     projectId: PROJECT_ID,
-    chains: [
-        mainnet,
-    ],
-    transports,
-    wallets: [
-        ...wallets,
-
-    ],
-    ssr: true,
+    chains: [mainnet],
+    ssr: true, // If your dApp uses server side rendering (SSR)
 });
+
 const connectors = connectorsForWallets([
     {
         groupName: "Recommended",

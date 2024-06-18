@@ -5,8 +5,8 @@ import { defineConfig } from "vite"
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: 'mypaal.local',
-    port: 80,
+    host: 'localhost',
+    port: 3000,
   },
   resolve: {
     alias: {
