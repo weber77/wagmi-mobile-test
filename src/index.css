@@ -1,0 +1,17 @@
+.Toastify__toast--success {
+  color: #aa54df;
+}
+
+.Toastify__progress-bar,
+.Toastify__progress-bar--bg,
+.Toastify__progress-bar--success,
+.Toastify__progress-bar,
+.Toastify__progress-bar--animated,
+.Toastify__progress-bar-theme--dark,
+.Toastify__progress-bar--success {
+  background-color: #aa54df;
+}
+
+:root {
+  --toastify-icon-color-success: #aa54df;
+}
