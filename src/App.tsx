@@ -20,11 +20,7 @@ const App: React.FC = () => {
           overlayBlur: "small",
         })}
       >
-        <ConnectButton
-          label={`Connect Wallet`}
-          showBalance={false}
-          chainStatus="icon"
-        />
+        <ConnectButton showBalance={false} chainStatus="icon" />
       </RainbowKitProvider>
     </div>
   );
