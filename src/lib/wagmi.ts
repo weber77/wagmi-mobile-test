@@ -1,4 +1,4 @@
-import { connectorsForWallets, getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { connectorsForWallets, getDefaultConfig, getDefaultWallets } from "@rainbow-me/rainbowkit";
 
 import { mainnet } from "wagmi/chains";
 import {
@@ -12,13 +12,23 @@ import { PROJECT_ID } from "@/utils/env";
 
 
 
-export const rainbowConfig = getDefaultConfig({
-    appName: 'PaalX Sniper🎯',
+const { wallets } = getDefaultWallets();
+const transports = {
+    [mainnet.id]: http()
+};
+export const config = getDefaultConfig({
+    appName: 'rainbowkit.com',
     projectId: PROJECT_ID,
-    chains: [mainnet],
-    ssr: true, // If your dApp uses server side rendering (SSR)
-});
+    chains: [
+        mainnet,
+    ],
+    transports,
+    wallets: [
+        ...wallets,
 
+    ],
+    ssr: true,
+});
 const connectors = connectorsForWallets([
     {
         groupName: "Recommended",
