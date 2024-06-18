@@ -246,6 +246,25 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center text-white">
+      <RainbowKitProvider
+        appInfo={{
+          appName: "Paalx Limit",
+          learnMoreUrl: "",
+        }}
+        modalSize="compact"
+        theme={darkTheme({
+          accentColor: "#aa54df",
+          fontStack: "system",
+          overlayBlur: "small",
+        })}
+        locale={locale}
+      >
+        <ConnectButton
+          label={`Connect Wallet`}
+          showBalance={false}
+          chainStatus="icon"
+        />
+      </RainbowKitProvider>
       <header className="w-full bg-paalBackground bg-opacity-90 flex flex-col items-center">
         <img
           src="/paalx_logo.svg"
@@ -407,26 +426,6 @@ const LandingPage: React.FC = () => {
                 Access per NFT!
               </div>
               <div className="mt-2 mb-2 flex flex-row gap-2">
-                <RainbowKitProvider
-                  appInfo={{
-                    appName: "Paalx Limit",
-                    learnMoreUrl: "",
-                  }}
-                  modalSize="compact"
-                  theme={darkTheme({
-                    accentColor: "#aa54df",
-                    fontStack: "system",
-                    overlayBlur: "small",
-                  })}
-                  locale={locale}
-                >
-                  <ConnectButton
-                    label={`Connect Wallet`}
-                    showBalance={false}
-                    chainStatus="icon"
-                  />
-                </RainbowKitProvider>
-
                 {paalNFTs && paalNFTs.length === 0 && address && (
                   <button
                     className="bg-purple-500 text-white font-semibold py-2 px-4 rounded-xl opacity-50 cursor-not-allowed"
