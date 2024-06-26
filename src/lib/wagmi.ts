@@ -34,6 +34,6 @@ export const wagmiConfig = createConfig({
     connectors,
     chains: [mainnet],
     transports: {
-        [mainnet.id]: http(),
+        [mainnet.id]: http('https://twilight-fittest-meadow.quiknode.pro/b50a098075b21df19b752b3911621c909e34e723/'),
     },
 });
