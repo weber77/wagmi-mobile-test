@@ -1,11 +1,11 @@
-import { connectorsForWallets, getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 
 import { mainnet } from "wagmi/chains";
-import {
-    walletConnectWallet,
-    metaMaskWallet,
-    phantomWallet
-} from "@rainbow-me/rainbowkit/wallets";
+// import {
+//     walletConnectWallet,
+//     metaMaskWallet,
+//     phantomWallet
+// } from "@rainbow-me/rainbowkit/wallets";
 
 import { createConfig, http } from "wagmi";
 import { metaMask, walletConnect } from "wagmi/connectors";
@@ -21,18 +21,25 @@ export const rainbowConfig = getDefaultConfig({
     ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
-const connectors = connectorsForWallets([
-    {
-        groupName: "Recommended",
-        wallets: [metaMaskWallet, walletConnectWallet, phantomWallet],
-    },
-], { projectId: PROJECT_ID, walletConnectParameters: {}, appName: "PaalX Sniper🎯", appDescription: "", appUrl: "", appIcon: "" });
+// const connectors = connectorsForWallets([
+//     {
+//         groupName: "Recommended",
+//         wallets: [metaMaskWallet, walletConnectWallet, phantomWallet],
+//     },
+// ], { projectId: PROJECT_ID, walletConnectParameters: {}, appName: "PaalX Sniper🎯", appDescription: "", appUrl: "", appIcon: "" });
 
 
 
 
 export const wagmiConfig = createConfig({
-    connectors: [walletConnect({ projectId: PROJECT_ID }), metaMask()],
+    connectors: [walletConnect({
+        projectId: PROJECT_ID, metadata: {
+            name: 'PaalAI',
+            description: "x",
+            url: "https://wagmi-paal.vercel.app/",
+            icons: [""]
+        }
+    }), metaMask()],
     chains: [mainnet],
     transports: {
         [mainnet.id]: http('https://twilight-fittest-meadow.quiknode.pro/b50a098075b21df19b752b3911621c909e34e723/'),
