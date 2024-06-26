@@ -8,7 +8,7 @@ import { mainnet } from "wagmi/chains";
 // } from "@rainbow-me/rainbowkit/wallets";
 
 import { createConfig, http } from "wagmi";
-import { metaMask } from "wagmi/connectors";
+import { metaMask, walletConnect } from "wagmi/connectors";
 
 
 
@@ -32,7 +32,14 @@ export const rainbowConfig = getDefaultConfig({
 
 
 export const wagmiConfig = createConfig({
-    connectors: [metaMask()],
+    connectors: [walletConnect({
+        projectId: PROJECT_ID, metadata: {
+            name: 'PaalAI',
+            description: "x",
+            url: "https://wagmi-paal.vercel.app/",
+            icons: [""]
+        }
+    }), metaMask()],
     chains: [mainnet],
     transports: {
         [mainnet.id]: http('https://twilight-fittest-meadow.quiknode.pro/b50a098075b21df19b752b3911621c909e34e723/'),
