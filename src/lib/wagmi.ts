@@ -12,7 +12,7 @@ import { metaMask, walletConnect } from "wagmi/connectors";
 
 
 
-const PROJECT_ID = "c744ff4b904ef92718611d818abeb30a"
+const PROJECT_ID = "3bff889ebd4e780bdff55e217ae391f5"
 
 export const rainbowConfig = getDefaultConfig({
     appName: 'PaalX Sniper🎯',
