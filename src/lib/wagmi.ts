@@ -11,7 +11,7 @@ import { createConfig, http } from "wagmi";
 
 
 
-const PROJECT_ID = import.meta.env.VITE_APP_PROJECT_ID
+const PROJECT_ID = "c744ff4b904ef92718611d818abeb30a"
 
 export const rainbowConfig = getDefaultConfig({
     appName: 'PaalX Sniper🎯',

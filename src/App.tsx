@@ -4,6 +4,7 @@ import {
   darkTheme,
 } from "@rainbow-me/rainbowkit";
 import React from "react";
+import { ConnectorButtonx } from "./components/MobileConnect/ConnectorButton";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
       >
         <ConnectButton showBalance={false} chainStatus="icon" />
       </RainbowKitProvider>
+      <ConnectorButtonx />
     </div>
   );
 };
