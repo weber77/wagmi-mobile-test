@@ -8,6 +8,7 @@ import {
 } from "@rainbow-me/rainbowkit/wallets";
 
 import { createConfig, http } from "wagmi";
+import { metaMask, walletConnect } from "wagmi/connectors";
 
 
 
@@ -31,7 +32,7 @@ const connectors = connectorsForWallets([
 
 
 export const wagmiConfig = createConfig({
-    connectors,
+    connectors: [walletConnect({ projectId: PROJECT_ID }), metaMask()],
     chains: [mainnet],
     transports: {
         [mainnet.id]: http('https://twilight-fittest-meadow.quiknode.pro/b50a098075b21df19b752b3911621c909e34e723/'),
